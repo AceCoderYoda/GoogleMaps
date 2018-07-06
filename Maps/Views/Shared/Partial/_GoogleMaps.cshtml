@@ -1,0 +1,117 @@
+﻿@using Maps.Data.Interfaces
+@{
+    var model = (List<ITrainee>) ViewData["Trainees"];
+    var selected = model.FirstOrDefault(t => t.Selected) ?? model.First();
+}
+
+<div class="container">
+    <div class="row">
+        <script>
+            var map;
+            var marker;
+
+            function initMap() {
+                var options = {
+                    zoom: 11,
+                    center: { lat: @selected.Latitude, lng: @selected.Longitude },
+                    disableDefaultUI: true,
+                    zoomControl: true,
+                    mapTypeControl: false,
+                    scaleControl: true,
+                    streetViewControl: false,
+                    rotateControl: false,
+                    fullscreenControl: false,
+                    gestureHandling: "cooperative"
+                };
+
+                map = new google.maps.Map(document.getElementById('map'), options);
+
+                var newLatLng = new google.maps.LatLng(@selected.Latitude, @selected.Longitude);
+
+                if (marker != undefined)
+                    marker.setPosition(newLatLng);
+                else
+                    marker = new google.maps.Marker({
+                        position: newLatLng,
+                        label: '@selected.Name',
+                        map: map,
+                        draggable: true
+                    });
+
+                var address = getAddress();
+
+
+                var contentInfo = "<div class='container'>" +
+                    "<div class='row'>" +
+                    "<div class='col-md-12'><h4>Trainee Info</h4></div>" +
+                    "</div>" +
+                    "<div class='row'>" +
+                    "<div class='col-md-3'>Name</div>" +
+                    "<div class='col-md-1'>:</div>" +
+                    "<div class='col-md-8'>@selected.Name</div>" +
+                    "</div>" +
+                    "<div class='row'>" +
+                    "<div class='col-md-3'>Id</div>" +
+                    "<div class='col-md-1'>:</div>" +
+                    "<div class='col-md-8'>@selected.Id</div>" +
+                    "</div>" +
+                    "<div class='row'>" +
+                    "<div class='col-md-3'>Address</div>" +
+                    "<div class='col-md-1'>:</div>" +
+                    "<div class='col-md-8'>" +
+                    address +
+                    "</div>" +
+                    "</div>" +
+                    "<div class='row'>" +
+                    "<div class='col-md-3'>Lat. </div>" +
+                    "<div class='col-md-1'>:</div>" +
+                    "<div class='col-md-8'>@selected.Latitude</div>" +
+                    "</div>" +
+                    "<div class='row'>" +
+                    "<div class='col-md-3'>Lng. </div>" +
+                    "<div class='col-md-1'>:</div>" +
+                    "<div class='col-md-8'>@selected.Longitude</div>" +
+                    "</div>" +
+                    "</div>";
+
+
+                var infowindow = new google.maps.InfoWindow({
+                    title: "Trainee Info",
+                    content: contentInfo
+                });
+
+                marker.addListener('click',
+                    function() {
+                        infowindow.open(map, marker);
+                    });
+            }
+
+
+            function getAddress() {
+                var url =
+                    "https://maps.googleapis.com/maps/api/geocode/json?latlng=@selected.Latitude,@selected.Longitude&key=@ViewData["key"]";
+                console.log(url);
+                var address = "";
+                $.when($.ajax({
+                    async: false,
+                    type: 'GET',
+                    url: url,
+                    success: function(data) {
+                        address = data.results[0].formatted_address;
+                    },
+                    error: function() {
+                        address = "";
+                    }
+                }));
+
+                return address;
+            }
+
+        </script>
+
+        <div id="map" style="height: 800px; width: 100%;"></div>
+        <script src="https://maps.googleapis.com/maps/api/js?key=@ViewData["key"]&callback=initMap&v=3.32"
+                async defer>
+        </script>
+    </div>
+</div>
