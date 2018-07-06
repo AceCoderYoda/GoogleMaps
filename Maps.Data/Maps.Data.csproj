@@ -41,9 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\ITrainee.cs" />
+    <Compile Include="Interfaces\ITraineeGroup.cs" />
+    <Compile Include="TraineeGroup.cs" />
     <Compile Include="Trainees.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Trainee.cs" />
+    <Compile Include="TraineGroups.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

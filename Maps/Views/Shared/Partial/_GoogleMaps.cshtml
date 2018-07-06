@@ -2,6 +2,8 @@
 @{
     var model = (List<ITrainee>) ViewData["Trainees"];
     var selected = model.FirstOrDefault(t => t.Selected) ?? model.First();
+    var groups = (List<ITraineeGroup>)ViewData["Groups"];
+    var selectedGroup = groups.FirstOrDefault(t => t.Selected) ?? groups.First();
 }
 
 <div class="container">
@@ -13,7 +15,7 @@
             function initMap() {
                 var options = {
                     zoom: 11,
-                    center: { lat: @selected.Latitude, lng: @selected.Longitude },
+                    center: { lat: (@selected.Latitude), lng: @selected.Longitude },
                     disableDefaultUI: true,
                     zoomControl: true,
                     mapTypeControl: false,
@@ -37,6 +39,18 @@
                         map: map,
                         draggable: true
                     });
+
+            //    var markers = locations.map(function (location, i) {
+            //        return new google.maps.Marker({
+            //            position: location,
+            //            label: labels[i % labels.length]
+            //        });
+            //    });
+
+                var markerCluster = new MarkerClusterer(map, markers,
+                    { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
+            }
+
 
                 var address = getAddress();
 
@@ -87,7 +101,7 @@
             }
 
 
-            function getAddress() {
+            @*function getAddress() {
                 var url =
                     "https://maps.googleapis.com/maps/api/geocode/json?latlng=@selected.Latitude,@selected.Longitude&key=@ViewData["key"]";
                 console.log(url);
@@ -105,8 +119,10 @@
                 }));
 
                 return address;
-            }
+            }*@
 
+        </script>
+        <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
         </script>
 
         <div id="map" style="height: 800px; width: 100%;"></div>

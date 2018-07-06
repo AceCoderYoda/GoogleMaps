@@ -22,12 +22,15 @@ namespace Maps.Controllers
         public void SetViewData(int? index)
         {
             var model = new Trainees();
+            var groups = new TraineGroups();
 
             if (index == null)
                 index = 1;
 
             model.SetSelected(index.Value);
+            groups.SetSelected(index.Value);
 
+            ViewData["Groups"] = groups.Items;
             ViewData["Trainees"] = model.Items;
             ViewData["key"] = "AIzaSyAVZqCjMiB9lr32F7SIZn5fdnt9i4itTFo";
         }
