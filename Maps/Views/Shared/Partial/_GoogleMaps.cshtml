@@ -1,11 +1,15 @@
 ﻿@using Maps.Data
 @{
+
     var markers = ViewData["markers"];
+
 }
 
 <div class="container">
     <div class="row">
+        <script src="~/Scripts/maps/functions.js"></script>
         <script>
+
             var map;
             var markerData = @Html.Raw(markers);
 
@@ -107,7 +111,6 @@
                 }
                 return "";
             }
-
         </script>
         <script src="/Content/img/markerclusterer.js">
         </script>
