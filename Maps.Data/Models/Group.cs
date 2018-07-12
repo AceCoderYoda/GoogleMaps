@@ -20,7 +20,6 @@ using Newtonsoft.Json;
 
 namespace Maps.Data.Models
 {
-    [JsonObject("group")]
     public class Group : IGroup
     {
         public Group(string id, string name, double latitude, double longitude)
@@ -33,7 +32,6 @@ namespace Maps.Data.Models
             Trainees = new List<ITrainee>();
         }
 
-        [JsonProperty("trainees")]
         public IList<ITrainee> Trainees { get; }
 
 
