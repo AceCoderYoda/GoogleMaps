@@ -16,7 +16,7 @@ using System.Linq;
 using System.Xml.Linq;
 using Maps.Data.Interfaces;
 using Maps.Data.Models;
-using Maps.Data.Tools;
+using Maps.Tools;
 using Newtonsoft.Json;
 
 #endregion
@@ -79,16 +79,6 @@ namespace Maps.Data
         public IGroup FirstOrDefault()
         {
             return TraineeGroups.FirstOrDefault();
-        }
-
-        public void SetSelected(string id)
-        {
-            foreach (var traineeGroup in TraineeGroups) traineeGroup.Selected = false || traineeGroup.Id == id;
-        }
-
-        public IGroup GetSelected()
-        {
-            return TraineeGroups.FirstOrDefault(t => t.Selected);
         }
     }
 }

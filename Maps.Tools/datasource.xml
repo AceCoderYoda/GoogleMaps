@@ -177,4 +177,92 @@
       </Trainee>
     </Trainees>
   </Group>
+  <Group Name="Zwolle" Id="C434D0DC949F4D82A06DC3A9310C2655">
+    <Geo>
+      <Lng>6.09444</Lng>
+      <Lat>52.5125</Lat>
+    </Geo>
+    <Trainees>
+      <Trainee Id="74BE22B7D5A94D4E83D55617AAD2D7FD" Name="Piet">
+        <Geo>
+          <Lng>6.191454</Lng>
+          <Lat>52.583521</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="B84E7573C12D423993F4BFA34537FD55" Name="Kees">
+        <Geo>
+          <Lng>6.100473</Lng>
+          <Lat>52.531130</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="D0708E94612A4733B76106F65BFE5E01" Name="Klaas">
+        <Geo>
+          <Lng>6.128283</Lng>
+          <Lat>52.490594</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="19A482F730AD43A7B3B6AF27A55BF52D" Name="Jos">
+      <Geo>
+          <Lng>6.133432</Lng>
+          <Lat>52.470312</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="43D1FB5738764134A37F1D3789F1570B" Name="Meindert">
+        <Geo>
+          <Lng>6.040049</Lng>
+          <Lat>52.508150</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="DA2BDDBE9BEA414DB38CE739D058FDBA" Name="Karel">
+        <Geo>
+          <Lng>6.105623</Lng>
+          <Lat>52.532175</Lat>
+        </Geo>
+      </Trainee>
+    </Trainees>
+  </Group>
+  <Group Name="Arnhem" Id="6E722BFCD3CE4A5BA1D03C13754864FB">
+    <Geo>
+      <Lng>5.91111</Lng>
+      <Lat>51.98</Lat>
+    </Geo>
+    <Trainees>
+      <Trainee Id="E352A5C8429248898D7FBB4BDB1485B1" Name="Monica">
+        <Geo>
+          <Lng>5.915697</Lng>
+          <Lat>51.963459</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="BBDA994FBFEC4C9791A7B1865BA85DDC" Name="Ngudelj">
+        <Geo>
+          <Lng>5.834040</Lng>
+          <Lat>51.954527</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="11B23625ADBA409DBAD554C754FE58B1" Name="Ramon">
+        <Geo>
+          <Lng>5.920066</Lng>
+          <Lat>52.010591</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="ECBCD1A52B224B4E8A02156868A5879D" Name="George">
+        <Geo>
+          <Lng>5.808621</Lng>
+          <Lat>52.016569</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="C799E9D9B2634F6EA44B0BD6045C9BF0" Name="Everett">
+        <Geo>
+          <Lng>5.956146</Lng>
+          <Lat>51.981909</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="5536B31AD3E54972BB4B818B9C0B634A" Name="Simon">
+        <Geo>
+          <Lng>5.941573</Lng>
+          <Lat>52.060511</Lat>
+        </Geo>
+      </Trainee>
+    </Trainees>
+  </Group>
 </Groups>

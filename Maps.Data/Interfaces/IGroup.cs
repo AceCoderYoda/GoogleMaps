@@ -13,13 +13,8 @@ using System.Xml.Linq;
 
 namespace Maps.Data.Interfaces
 {
-    public interface IGroup
+    public interface IGroup: IIdentifiable, IGeo
     {
-        string Id { get; set; }
-        string Name { get; set; }
-        double Latitude { get; set; }
-        double Longitude { get; set; }
-        bool Selected { get; set; }
         IList<ITrainee> Trainees { get; }
 
         void AddTrainee(XElement traineeXElement);

@@ -28,7 +28,6 @@ namespace Maps.Data.Models
             Name = name;
             Latitude = latitude;
             Longitude = longitude;
-            Selected = false;
             Trainees = new List<ITrainee>();
         }
 
@@ -39,7 +38,7 @@ namespace Maps.Data.Models
         public string Name { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
-        public bool Selected { get; set; }
+
 
 
         public void AddTrainee(XElement traineeXElement)

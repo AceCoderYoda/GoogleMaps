@@ -1,17 +1,9 @@
-﻿@using Maps.Data
-@{
-
-    var markers = ViewData["markers"];
-
-}
-
-<div class="container">
+﻿<div class="container">
     <div class="row">
         <script src="~/Scripts/maps/functions.js"></script>
         <script>
 
             var map;
-            var markerData = @Html.Raw(markers);
 
             function initMap() {
                 var options = {
@@ -29,6 +21,14 @@
 
                 map = new google.maps.Map(document.getElementById('map'), options);
 
+                var markers = createMarkers(@Html.Raw(ViewData["markers"]), map);
+
+                var markerCluster = new MarkerClusterer(map,
+                    markers,
+                    { imagePath: 'Content/img/m' });
+            }
+
+            function createMarkers(markerData,map) {
                 var markers = [];
                 markerData.forEach(marker => {
                     markers.push(new google.maps.Marker({
@@ -45,14 +45,12 @@
                         content: getContent(marker)
                     });
                     marker.addListener('click',
-                        function() {
+                        function () {
                             infowindow.open(map, marker);
                         });
                 });
 
-                var markerCluster = new MarkerClusterer(map,
-                    markers,
-                    { imagePath: 'Content/img/m' });
+                return markers;
             }
 
             function getContent(marker) {

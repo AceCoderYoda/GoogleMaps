@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maps.Data", "Maps.Data\Maps
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maps", "Maps\Maps.csproj", "{428EABD1-BF52-4D35-AEC2-2C2379D33F97}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maps.Tools", "Maps.Tools\Maps.Tools.csproj", "{919B4D62-2664-437E-9A0D-DCE70D2327A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{428EABD1-BF52-4D35-AEC2-2C2379D33F97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{428EABD1-BF52-4D35-AEC2-2C2379D33F97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{428EABD1-BF52-4D35-AEC2-2C2379D33F97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{919B4D62-2664-437E-9A0D-DCE70D2327A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{919B4D62-2664-437E-9A0D-DCE70D2327A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{919B4D62-2664-437E-9A0D-DCE70D2327A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{919B4D62-2664-437E-9A0D-DCE70D2327A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

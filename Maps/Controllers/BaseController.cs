@@ -27,8 +27,6 @@ namespace Maps.Controllers
             if (string.IsNullOrEmpty(id))
                 id = factory.FirstOrDefault().Id;
 
-            factory.SetSelected(id);
-
             ViewData["markers"] = factory.Markers();
             ViewData["id"] = id;
             ViewData["key"] = "AIzaSyAVZqCjMiB9lr32F7SIZn5fdnt9i4itTFo";

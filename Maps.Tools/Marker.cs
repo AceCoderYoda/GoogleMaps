@@ -14,9 +14,9 @@ using Newtonsoft.Json;
 
 #endregion
 
-namespace Maps.Data.Tools
+namespace Maps.Tools
 {
-    internal class Marker
+    public class Marker
     {
         [JsonProperty("position")] public LatLng Position { get; set; }
 

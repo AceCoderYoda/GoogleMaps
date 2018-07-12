@@ -15,15 +15,15 @@ using System.Reflection;
 
 #endregion
 
-namespace Maps.Data.Tools
+namespace Maps.Tools
 {
-    internal static class Reader
+    public  static class Reader
     {
-        internal static string GetResourceFile(string filename)
+        public static string GetResourceFile(string filename)
         {
             var result = string.Empty;
 
-            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Maps.Data.Tools." + filename))
+            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Maps.Tools." + filename))
             {
                 using (var sr = new StreamReader(stream))
                 {
