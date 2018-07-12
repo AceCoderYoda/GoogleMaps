@@ -19,19 +19,18 @@ namespace Maps.Controllers
 {
     public class BaseController : Controller
     {
-        public void SetViewData(int? index)
+        public void SetViewData(string id)
         {
-            var model = new Trainees();
-            var groups = new TraineGroups();
+            var factory = new Factory();
+            factory.Initialize();
 
-            if (index == null)
-                index = 1;
+            if (string.IsNullOrEmpty(id))
+                id = factory.FirstOrDefault().Id;
 
-            model.SetSelected(index.Value);
-            groups.SetSelected(index.Value);
+            factory.SetSelected(id);
 
-            ViewData["Groups"] = groups.Items;
-            ViewData["Trainees"] = model.Items;
+            ViewData["markers"] = factory.Markers();
+            ViewData["id"] = id;
             ViewData["key"] = "AIzaSyAVZqCjMiB9lr32F7SIZn5fdnt9i4itTFo";
         }
     }

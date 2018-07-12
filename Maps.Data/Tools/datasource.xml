@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Groups>
+  <Group Name="Rotterdam" Id="80C9EC5B637843328D9822022F9634CC">
+    <Geo>
+      <Lng>4.47917</Lng>
+      <Lat>51.9225</Lat>
+    </Geo>
+    <Trainees>
+      <Trainee Id="54465C820FFE48B4B5A245AE534EB1D5" Name="Idris">
+        <Geo>
+          <Lng> 4.541873</Lng>
+          <Lat> 51.961950</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="D550766AC4F24FD0ACDA1A92CE7B07E1" Name="Adjay">
+        <Geo>
+          <Lng>4.463273</Lng>
+          <Lat>51.89009</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="0832A08CB637480995BC7E9F6E83DEC0" Name="Mark">
+        <Geo>
+          <Lng>4.427590</Lng>
+          <Lat>51.938664</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="5E75ED3D56B14E109ADEF0C9FA19ADD5" Name="Tilly">
+        <Geo>
+          <Lng>4.565998</Lng>
+          <Lat>51.893711</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="5E357AF5327A4337AC587C064878CB89" Name="Nick">
+        <Geo>
+          <Lng>4.392070</Lng>
+          <Lat>51.856784</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="D638600B153D4FD4B0023B22A3852038" Name="Michiel">
+        <Geo>
+          <Lng>4.598456</Lng>
+          <Lat>51.847705</Lat>
+        </Geo>
+      </Trainee>
+    </Trainees>
+  </Group>
+  <Group Name="Breda" Id="E9299D3C730B4D67B76AB5AAED663A50">
+    <Geo>
+      <Lng>4.77596</Lng>
+      <Lat>51.58656</Lat>
+    </Geo>
+    <Trainees>
+      <Trainee Id="D0B93BC5C38942B1AB0A89CF924ED5A0" Name="Peter">
+        <Geo>
+          <Lng> 4.737803</Lng>
+          <Lat> 51.613494</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="0B3D393C88FC464F91C05F17DDB1469D" Name="Michael">
+        <Geo>
+          <Lng>4.791501</Lng>
+          <Lat>51.609729</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="46F56EDB395C4B4C9531E8F1DC89BBF5" Name="Johan">
+        <Geo>
+          <Lng>4.817195</Lng>
+          <Lat>51.577267</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="D01CD86284D34A1E908D1A8AA1EABDCF" Name="Danny">
+        <Geo>
+          <Lng>4.793522</Lng>
+          <Lat>51.558424</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="1383B35BF9F04FA18C094BB289DBC8DA" Name="Paul">
+        <Geo>
+          <Lng>4.703159</Lng>
+          <Lat>51.560039</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="ACBCC1F427E84C09BA91B6FFB83C06B1" Name="Jolanda">
+        <Geo>
+          <Lng>4.766384</Lng>
+          <Lat>51.574755</Lat>
+        </Geo>
+      </Trainee>
+    </Trainees>
+  </Group>
+  <Group Name="Amsterdam" Id="6FBF585FE82A4C4F8DCB2A6ACCE95005">
+    <Geo>
+      <Lng>4.899431</Lng>
+      <Lat>52.379189</Lat>
+    </Geo>
+    <Trainees>
+      <Trainee Id="1EC08ADDE3524EB0836A01DBB1C41850" Name="John">
+        <Geo>
+          <Lng> 4.884889</Lng>
+          <Lat> 52.420840</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="C45791A9A6A34FD1AB80A58AA891BB7B" Name="Elisabeth">
+        <Geo>
+          <Lng>4.803865</Lng>
+          <Lat>52.403459</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="96D1E7CD52484751BB51F660328D005B" Name="Marcel">
+        <Geo>
+          <Lng>4.818971</Lng>
+          <Lat>52.367836</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="796B5D6812724B13AC76D16D06E86972" Name="Willem">
+        <Geo>
+          <Lng>4.864976</Lng>
+          <Lat>52.335961</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="0E50E71CCE76431189DE5CBAC9967FA5" Name="Willemien">
+        <Geo>
+          <Lng>4.970720</Lng>
+          <Lat>52.310990</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="A78A3F5FB5114373A5D56543A92F6F7D" Name="Siobhan">
+        <Geo>
+          <Lng>4.936731</Lng>
+          <Lat>52.373705</Lat>
+        </Geo>
+      </Trainee>
+    </Trainees>
+  </Group>
+  <Group Name="Groningen" Id="1339B4852C0341F7B31FE87EAD7C1E87">
+    <Geo>
+      <Lng>6.56667</Lng>
+      <Lat>53.21917</Lat>
+    </Geo>
+    <Trainees>
+      <Trainee Id="90E9F408206C4C1AAE586A87D611C0C1" Name="Sjoerd">
+        <Geo>
+          <Lng>6.545265</Lng>
+          <Lat>53.249133</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="85E1614CF2374A5DA0CFA25E95AC4F36" Name="Jelle">
+        <Geo>
+          <Lng>6.622160</Lng>
+          <Lat>53.237045</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="77F051DC4FC34D1B8153472B5ACE1AF5" Name="Jochem">
+        <Geo>
+          <Lng>6.621302</Lng>
+          <Lat>53.206521</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="B1BC4E70907A484292AC8F00180AA4E7" Name="Bert">
+       <Geo>
+          <Lng>6.548517</Lng>
+          <Lat>53.192638</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="A126A0954373421ABA2CAD5D658C7DFB" Name="Jasmien">
+        <Geo>
+          <Lng>6.501311</Lng>
+          <Lat>53.216903</Lat>
+        </Geo>
+      </Trainee>
+      <Trainee Id="805C305A24874C838EB97649E9AE9755" Name="Trudy">
+        <Geo>
+          <Lng>6.576842</Lng>
+          <Lat>53.222968</Lat>
+        </Geo>
+      </Trainee>
+    </Trainees>
+  </Group>
+</Groups>

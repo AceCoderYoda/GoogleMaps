@@ -1,21 +1,18 @@
-﻿@using Maps.Data.Interfaces
+﻿@using Maps.Data
 @{
-    var model = (List<ITrainee>) ViewData["Trainees"];
-    var selected = model.FirstOrDefault(t => t.Selected) ?? model.First();
-    var groups = (List<ITraineeGroup>)ViewData["Groups"];
-    var selectedGroup = groups.FirstOrDefault(t => t.Selected) ?? groups.First();
+    var markers = ViewData["markers"];
 }
 
 <div class="container">
     <div class="row">
         <script>
             var map;
-            var marker;
+            var markerData = @Html.Raw(markers);
 
             function initMap() {
                 var options = {
-                    zoom: 6,
-                    center: { lat: (52.371860), lng: 4.901354 },
+                    zoom: 8,
+                    center: { lat: 52.4, lng: 6 },
                     disableDefaultUI: true,
                     zoomControl: true,
                     mapTypeControl: false,
@@ -28,128 +25,91 @@
 
                 map = new google.maps.Map(document.getElementById('map'), options);
 
-                var newLatLng = new google.maps.LatLng(52.371860, 4.901354);
+                var markers = [];
+                markerData.forEach(marker => {
+                    markers.push(new google.maps.Marker({
+                        position: marker.position,
+                        label: marker.label,
+                        draggable: marker.draggable,
+                        map: map
+                    }));
 
-                if (marker != undefined)
-                    marker.setPosition(newLatLng);
-                else
-                    marker = new google.maps.Marker({
-                        position: newLatLng,
-                        label: '@selected.Name',
-                        map: map,
-                        draggable: true
-                    });
-
-
-                var address = getAddress();
-
-                var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
-                var markers = locations.map(function (location, i) {
-                    return new google.maps.Marker({
-                        position: location,
-                        label: labels[i % labels.length]
-                    });
                 });
 
-                var markerCluster = new MarkerClusterer(map, markers,
-                    { imagePath: 'Content/img/m' });
-            
+                markers.forEach(marker => {
+                    var infowindow = new google.maps.InfoWindow({
+                        content: getContent(marker)
+                    });
+                    marker.addListener('click',
+                        function() {
+                            infowindow.open(map, marker);
+                        });
+                });
 
-                var contentInfo = "<div class='container'>" +
+                var markerCluster = new MarkerClusterer(map,
+                    markers,
+                    { imagePath: 'Content/img/m' });
+            }
+
+            function getContent(marker) {
+                return "<div class='container'>" +
                     "<div class='row'>" +
                     "<div class='col-md-12'><h4>Trainee Info</h4></div>" +
                     "</div>" +
                     "<div class='row'>" +
                     "<div class='col-md-3'>Name</div>" +
                     "<div class='col-md-1'>:</div>" +
-                    "<div class='col-md-8'>@selected.Name</div>" +
-                    "</div>" +
-                    "<div class='row'>" +
-                    "<div class='col-md-3'>Id</div>" +
-                    "<div class='col-md-1'>:</div>" +
-                    "<div class='col-md-8'>@selected.Id</div>" +
+                    "<div class='col-md-8'>"+marker.label+"</div>" +
                     "</div>" +
                     "<div class='row'>" +
                     "<div class='col-md-3'>Address</div>" +
                     "<div class='col-md-1'>:</div>" +
                     "<div class='col-md-8'>" +
-                    address +
+                    getAddress(marker) +
                     "</div>" +
                     "</div>" +
                     "<div class='row'>" +
                     "<div class='col-md-3'>Lat. </div>" +
                     "<div class='col-md-1'>:</div>" +
-                    "<div class='col-md-8'>@selected.Latitude</div>" +
+                    "<div class='col-md-8'>"+marker.position.lat()+"</div>" +
                     "</div>" +
                     "<div class='row'>" +
                     "<div class='col-md-3'>Lng. </div>" +
                     "<div class='col-md-1'>:</div>" +
-                    "<div class='col-md-8'>@selected.Longitude</div>" +
+                    "<div class='col-md-8'>"+marker.position.lng()+"</div>" +
                     "</div>" +
                     "</div>";
-
-
-                var infowindow = new google.maps.InfoWindow({
-                    title: "Trainee Info",
-                    content: contentInfo
-                });
-
-                marker.addListener('click',
-                    function() {
-                        infowindow.open(map, marker);
-                    });
             }
 
-            var locations = [
-                { lat: 52.563910, lng: 5.154312 },
-                { lat: 52.718234, lng: 5.363181 },
-                { lat: 52.727111, lng: 5.371124 },
-                { lat: 52.848588, lng: 4.209834 },
-                { lat: 52.851702, lng: 4.216968 },
-                { lat: 52.651264, lng: 4.863657 },
-                { lat: 52.304724, lng: 5.662905 },
-                { lat: 52.817685, lng: 5.699196 },
-                { lat: 52.828611, lng: 4.790222 },
-                { lat: 52.750000, lng: 5.116667 },
-                { lat: 52.759859, lng: 4.128708 },
-                { lat: 52.765015, lng: 4.133858 },
-                { lat: 52.770104, lng: 4.943299 },
-                { lat: 52.773700, lng: 4.945187 },
-                { lat: 52.774785, lng: 4.937978 },
-                { lat: 52.259616, lng: 4.968119 },
-                { lat: 52.330766, lng: 4.695692 },
-                { lat: 52.927193, lng: 5.053218 },
-                { lat: 52.330162, lng: 4.865694 },
-                { lat: 52.134358, lng: 4.839506 },
-                { lat: 52.114358, lng: 5.501315 },
-                { lat: 52.625258, lng: 4.438000 },
-                { lat: 52.629792, lng: 5.463352 }
-            ];
+            function getAddress(marker) {
+                if (marker) {
+                    var url =
+                        "https://maps.googleapis.com/maps/api/geocode/json?latlng=" +
+                            marker.position.lat() +
+                            "," +
+                            marker.position.lng() +
+                            "&key=@ViewData["key"]";
+                    console.log(url);
+                    var address = "";
+                    $.when($.ajax({
+                        async: false,
+                        type: 'GET',
+                        url: url,
+                        success: function(data) {
+                            address = data.results[0].formatted_address;
+                        },
+                        error: function() {
+                            address = "";
+                        }
+                    }));
 
-
-            function getAddress() {
-                var url =
-                    "https://maps.googleapis.com/maps/api/geocode/json?latlng=@selected.Latitude,@selected.Longitude&key=@ViewData["key"]";
-                console.log(url);
-                var address = "";
-                $.when($.ajax({
-                    async: false,
-                    type: 'GET',
-                    url: url,
-                    success: function(data) {
-                        address = data.results[0].formatted_address;
-                    },
-                    error: function() {
-                        address = "";
-                    }
-                }));
-
-                return address;
+                    return address;
+                }
+                return "";
             }
 
         </script>
-        <script src="Content/img/markerclusterer.js">
+        <script src="/Content/img/markerclusterer.js">
         </script>
 
         <div id="map" style="height: 800px; width: 100%;"></div>

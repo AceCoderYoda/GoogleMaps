@@ -2,8 +2,8 @@
 
 // Solution      ::    GoogleMaps
 // Filename      ::    Maps.Data.Trainee.cs
-// Created On    ::    05/07/2018 09:37
-// Altered On    ::    05/07/2018 09:38
+// Created On    ::    12/07/2018 07:24
+// Altered On    ::    12/07/2018 08:23
 // By            ::    Arjan Crielaard
 
 #endregion
@@ -14,11 +14,11 @@ using Maps.Data.Interfaces;
 
 #endregion
 
-namespace Maps.Data
+namespace Maps.Data.Models
 {
     public class Trainee : ITrainee
     {
-        public Trainee(int id, string name, double latitude, double longitude)
+        public Trainee(string id, string name, double latitude, double longitude)
         {
             Id = id;
             Name = name;
@@ -27,7 +27,7 @@ namespace Maps.Data
             Selected = false;
         }
 
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
