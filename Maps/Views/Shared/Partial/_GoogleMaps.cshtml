@@ -1,15 +1,118 @@
-﻿@using Maps.Data.Interfaces
+﻿@using Maps.Data
 @{
-    var model = (List<ITrainee>)ViewData["Trainees"];
-    var selected = model.FirstOrDefault(t => t.Selected) ?? model.First();
+
+    var markers = ViewData["markers"];
+
 }
 
 <div class="container">
     <div class="row">
         <script src="~/Scripts/maps/functions.js"></script>
         <script>
-           init("@ViewData["key"]");
-            initTrainee(@selected.Latitude, @selected.Longitude, "@selected.Name", @selected.Id);
+
+            var map;
+            var markerData = @Html.Raw(markers);
+
+            function initMap() {
+                var options = {
+                    zoom: 8,
+                    center: { lat: 52.4, lng: 6 },
+                    disableDefaultUI: true,
+                    zoomControl: true,
+                    mapTypeControl: false,
+                    scaleControl: true,
+                    streetViewControl: false,
+                    rotateControl: false,
+                    fullscreenControl: false,
+                    gestureHandling: "cooperative"
+                };
+
+                map = new google.maps.Map(document.getElementById('map'), options);
+
+                var markers = [];
+                markerData.forEach(marker => {
+                    markers.push(new google.maps.Marker({
+                        position: marker.position,
+                        label: marker.label,
+                        draggable: marker.draggable,
+                        map: map
+                    }));
+
+                });
+
+                markers.forEach(marker => {
+                    var infowindow = new google.maps.InfoWindow({
+                        content: getContent(marker)
+                    });
+                    marker.addListener('click',
+                        function() {
+                            infowindow.open(map, marker);
+                        });
+                });
+
+                var markerCluster = new MarkerClusterer(map,
+                    markers,
+                    { imagePath: 'Content/img/m' });
+            }
+
+            function getContent(marker) {
+                return "<div class='container'>" +
+                    "<div class='row'>" +
+                    "<div class='col-md-12'><h4>Trainee Info</h4></div>" +
+                    "</div>" +
+                    "<div class='row'>" +
+                    "<div class='col-md-3'>Name</div>" +
+                    "<div class='col-md-1'>:</div>" +
+                    "<div class='col-md-8'>"+marker.label+"</div>" +
+                    "</div>" +
+                    "<div class='row'>" +
+                    "<div class='col-md-3'>Address</div>" +
+                    "<div class='col-md-1'>:</div>" +
+                    "<div class='col-md-8'>" +
+                    getAddress(marker) +
+                    "</div>" +
+                    "</div>" +
+                    "<div class='row'>" +
+                    "<div class='col-md-3'>Lat. </div>" +
+                    "<div class='col-md-1'>:</div>" +
+                    "<div class='col-md-8'>"+marker.position.lat()+"</div>" +
+                    "</div>" +
+                    "<div class='row'>" +
+                    "<div class='col-md-3'>Lng. </div>" +
+                    "<div class='col-md-1'>:</div>" +
+                    "<div class='col-md-8'>"+marker.position.lng()+"</div>" +
+                    "</div>" +
+                    "</div>";
+            }
+
+            function getAddress(marker) {
+                if (marker) {
+                    var url =
+                        "https://maps.googleapis.com/maps/api/geocode/json?latlng=" +
+                            marker.position.lat() +
+                            "," +
+                            marker.position.lng() +
+                            "&key=@ViewData["key"]";
+                    console.log(url);
+                    var address = "";
+                    $.when($.ajax({
+                        async: false,
+                        type: 'GET',
+                        url: url,
+                        success: function(data) {
+                            address = data.results[0].formatted_address;
+                        },
+                        error: function() {
+                            address = "";
+                        }
+                    }));
+
+                    return address;
+                }
+                return "";
+            }
+        </script>
+        <script src="/Content/img/markerclusterer.js">
         </script>
 
         <div id="map" style="height: 800px; width: 100%;"></div>

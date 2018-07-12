@@ -18,10 +18,12 @@ namespace Maps.Controllers
 {
     public class HomeController : BaseController
     {
-        public ActionResult Index(int? index = -1)
+        public ActionResult Index(string id= "")
         {
-            SetViewData(index);
+            SetViewData(id);
             return View();
         }
+
+
     }
 }

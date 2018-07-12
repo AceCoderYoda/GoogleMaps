@@ -12,7 +12,7 @@ namespace Maps.Data.Interfaces
 {
     public interface ITrainee
     {
-        int Id { get; set; }
+        string Id { get; set; }
         string Name { get; set; }
         double Latitude { get; set; }
         double Longitude { get; set; }

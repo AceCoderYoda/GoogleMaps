@@ -1,8 +1,4 @@
-﻿@using Maps.Data.Interfaces
-@{
-    var model = (List<ITrainee>) ViewData["Trainees"];
-        }
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -18,17 +14,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarColor02">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Trainees</a>
-                    <div class="dropdown-menu">
-                        @foreach (var item in model)
-                        {
-                            <a>@Html.ActionLink(item.Name, "Index", "Home", new { index = item.Id }, new { @class = item.Selected?"dropdown-item active":"dropdown-item" })</a>
-                        }
-                    </div>
-                </li>
-            </ul>
+            
         </div>
     </nav>
 
