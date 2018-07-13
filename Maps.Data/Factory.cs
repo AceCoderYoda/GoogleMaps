@@ -25,6 +25,21 @@ namespace Maps.Data
 {
     public class Factory
     {
+        public IList<ITrainee> Trainees
+
+        {
+            get
+            {
+                var result = new List<ITrainee>();
+                foreach (var traineeGroup in TraineeGroups)
+                {
+                    result.AddRange(traineeGroup.Trainees);
+                }
+
+                return result;
+            }
+        }
+
         public Factory()
         {
             TraineeGroups = new List<IGroup>();

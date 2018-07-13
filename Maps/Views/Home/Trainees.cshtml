@@ -1,0 +1,56 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc;
+@using X.PagedList.Mvc.Bootstrap4
+
+@model X.PagedList.IPagedList<Maps.Data.Interfaces.ITrainee>
+@{
+    ViewBag.Title = "Trainees";
+}
+
+<h2>Trainees</h2>
+
+@*@foreach (var item in Model)
+    {
+        foreach (var trainee in item.Trainees)
+        {
+            <div class="row">
+                <div class="col-md-4">
+                    @trainee.Name
+                </div>
+            </div>
+            }
+        }*@
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Naam</th>
+            <th scope="col">ID</th>
+            <th scope="col">Latitude</th>
+            <th scope="col">Longitude</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var trainee in Model)
+        {
+            <tr>
+                <td>
+                    @trainee.Name
+                </td>
+                <td>
+                    @trainee.Id
+                </td>
+                <td>
+                    @trainee.Latitude
+                </td>
+                <td>
+                    @trainee.Longitude
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Trainees", new { page }), Bootstrap4PagedListRenderOptions.ClassicPlusFirstAndLast)
