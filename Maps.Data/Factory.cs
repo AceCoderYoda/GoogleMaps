@@ -10,14 +10,14 @@
 
 #region ...   [Usings]   ...
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Xml.Linq;
 using Maps.Data.Interfaces;
 using Maps.Data.Models;
 using Maps.Tools;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Xml.Linq;
 
 #endregion
 
@@ -71,7 +71,7 @@ namespace Maps.Data
                 {
                     Draggable = true,
                     Label = t.Name,
-                    Position = new LatLng() {Lng = t.Longitude, Lat = t.Latitude},
+                    Position = new LatLng() { Lng = t.Longitude, Lat = t.Latitude },
                     Map = null
                 });
 
