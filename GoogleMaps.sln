@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maps", "Maps\Maps.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maps.Tools", "Maps.Tools\Maps.Tools.csproj", "{919B4D62-2664-437E-9A0D-DCE70D2327A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maps.EF", "Maps.EF\Maps.EF.csproj", "{5E9A3C86-37C3-49D9-BDA3-B27F6EBB5A3A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maps.EF", "Maps.EF\Maps.EF.csproj", "{7AE4D54B-B359-4835-ADAE-6A97D58101C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{919B4D62-2664-437E-9A0D-DCE70D2327A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{919B4D62-2664-437E-9A0D-DCE70D2327A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{919B4D62-2664-437E-9A0D-DCE70D2327A5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5E9A3C86-37C3-49D9-BDA3-B27F6EBB5A3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5E9A3C86-37C3-49D9-BDA3-B27F6EBB5A3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5E9A3C86-37C3-49D9-BDA3-B27F6EBB5A3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5E9A3C86-37C3-49D9-BDA3-B27F6EBB5A3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AE4D54B-B359-4835-ADAE-6A97D58101C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AE4D54B-B359-4835-ADAE-6A97D58101C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AE4D54B-B359-4835-ADAE-6A97D58101C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AE4D54B-B359-4835-ADAE-6A97D58101C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connections.cs" />
     <Compile Include="LatLng.cs" />
     <Compile Include="Marker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

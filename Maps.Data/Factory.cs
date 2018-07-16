@@ -54,7 +54,7 @@ namespace Maps.Data
             if (!string.IsNullOrEmpty(search))
             {
                 trainees = trainees.Where(s => s.Name.ToLower().Contains(search.ToLower())
-                                               || s.Group.ToLower().Contains(search.ToLower())).ToList();
+                                               || s.Group.Name.ToLower().Contains(search.ToLower())).ToList();
             }
 
             switch (sortOrder)

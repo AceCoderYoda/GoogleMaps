@@ -8,10 +8,13 @@
 
 #endregion
 
+using Maps.Data.Models;
+
 namespace Maps.Data.Interfaces
 {
     public interface ITrainee : IIdentifiable, IGeo
     {
-        string Group { get; set; }
+        string GroupId { get; set; }
+        Group Group { get; set; }
     }
 }

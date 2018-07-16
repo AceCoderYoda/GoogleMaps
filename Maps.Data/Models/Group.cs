@@ -28,10 +28,9 @@ namespace Maps.Data.Models
             Name = name;
             Latitude = latitude;
             Longitude = longitude;
-            Trainees = new List<ITrainee>();
         }
 
-        public IList<ITrainee> Trainees { get; }
+        public ICollection<ITrainee> Trainees { get; }
 
 
         public string Id { get; set; }
@@ -45,7 +44,7 @@ namespace Maps.Data.Models
         {
             var trainee = new Trainee(traineeXElement.Attribute("Id").Value, traineeXElement.Attribute("Name").Value,
                 Convert.ToDouble(traineeXElement.Element("Geo").Element("Lat").Value),
-                Convert.ToDouble(traineeXElement.Element("Geo").Element("Lng").Value)) {Group = Name};
+                Convert.ToDouble(traineeXElement.Element("Geo").Element("Lng").Value)) {GroupId = Id};
 
             AddTrainee(trainee);
         }
