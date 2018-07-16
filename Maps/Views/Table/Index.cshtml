@@ -2,38 +2,64 @@
 @using X.PagedList.Mvc
 @using X.PagedList.Mvc.Bootstrap4
 @model X.PagedList.IPagedList<Maps.Data.Interfaces.ITrainee>
-
 @{
-    /**/
-
-    ViewBag.Title = "Poah zeg!";
+    ViewBag.ReadOnly= true;
 }
 
-<script>
-    $(document).ready(function () {
-        $('#traineeTable').dataTable();
-    });
-</script>
-
 <div class="container" style="margin-top: 30px;">
-    <h2>Index</h2>
+    <h2>Trainees</h2>
 </div>
 
+
 <div class="container" style="margin-top: 25px;">
-    <table id="traineeTable" class="table table-bordered table-striped">
-        <thead>
-            <tr><th>Name</th><th>Latitude</th><th>Longitude</th></tr>
-        </thead>
-        <tbody>
-            @foreach (var groups in Model)
+    <div class="row">
+        <div class="col-md-12">
+            @using (Html.BeginForm())
             {
-                <tr><td>@groups.Name</td><td>@groups.Latitude</td><td>@groups.Longitude</td></tr>
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-md-2">Find by name/group:</div>
+                        <div class="col-md-3">@Html.TextBox("search", "", new { @class = "form-control" })</div>
+                        <div class="col-md-7 float-right"><input type="submit" value="Search" class="btn btn-md" /></div>
+                    </div>
+                </div>
 
             }
-        </tbody>
-    </table>
-    <div>
-        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", "Table", new { page }), Bootstrap4PagedListRenderOptions.PageNumbersOnly)
+        </div>
+    </div>
+    <div class="row"><br /></div>
+    <div class="row">
+        <div class="col-md-12">
+            <table id="traineeTable" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>
+                        @Html.ActionLink("Name", "Index", new {page = ViewBag.Page, sortOrder = ViewBag.NameSort})
+                    </th>
+                    <th>
+                        @Html.ActionLink("Group", "Index", new {page = ViewBag.Page, sortOrder = ViewBag.GroupSort})
+                    </th>
+
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                </tr>
+                </thead>
+                <tbody>
+                    @foreach (var trainee in Model)
+                    {
+                       @Html.Partial("Partial/_Trainee", trainee)
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-12">
+            @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", "Table", new { page }), Bootstrap4PagedListRenderOptions.PageNumbersOnly)
+        </div>
     </div>
 </div>
 

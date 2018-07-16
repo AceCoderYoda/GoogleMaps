@@ -45,7 +45,7 @@ namespace Maps.Data.Models
         {
             var trainee = new Trainee(traineeXElement.Attribute("Id").Value, traineeXElement.Attribute("Name").Value,
                 Convert.ToDouble(traineeXElement.Element("Geo").Element("Lat").Value),
-                Convert.ToDouble(traineeXElement.Element("Geo").Element("Lng").Value));
+                Convert.ToDouble(traineeXElement.Element("Geo").Element("Lng").Value)) {Group = Name};
 
             AddTrainee(trainee);
         }

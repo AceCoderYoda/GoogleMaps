@@ -10,6 +10,7 @@
 
 #region ...   [Usings]   ...
 
+using System;
 using Maps.Data.Interfaces;
 
 #endregion
@@ -26,7 +27,13 @@ namespace Maps.Data.Models
             Longitude = longitude;
         }
 
+        public Trainee()
+        {
+            Id = Guid.NewGuid().ToString("N");
+        }
+
         public string Id { get; set; }
+        public string Group { get; set; }
         public string Name { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }

@@ -12,5 +12,6 @@ namespace Maps.Data.Interfaces
 {
     public interface ITrainee : IIdentifiable, IGeo
     {
+        string Group { get; set; }
     }
 }

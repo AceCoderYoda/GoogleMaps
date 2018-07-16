@@ -48,6 +48,35 @@ namespace Maps.Data
             }
         }
 
+        public IList<ITrainee> Sort(string sortOrder, string search)
+        {
+            var trainees = Trainees;
+            if (!string.IsNullOrEmpty(search))
+            {
+                trainees = trainees.Where(s => s.Name.ToLower().Contains(search.ToLower())
+                                               || s.Group.ToLower().Contains(search.ToLower())).ToList();
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    trainees = trainees.OrderByDescending(s => s.Name).ToList();
+                    break;
+                case "group":
+                    trainees = trainees.OrderBy(s => s.Group).ToList();
+                    break;
+                case "group_desc":
+                    trainees = trainees.OrderByDescending(s => s.Group).ToList();
+                    break;
+                default:
+                    trainees = trainees.OrderBy(s => s.Name).ToList();
+                    break;
+            }
+
+            return trainees;
+        }
+
+
         public IList<ITrainee> Trainees
         {
             get
@@ -62,7 +91,7 @@ namespace Maps.Data
             }
         }
 
-      public string Markers()
+        public string Markers()
         {
             var markers = new List<Marker>();
             foreach (var traineeGroup in TraineeGroups)
@@ -93,6 +122,24 @@ namespace Maps.Data
         public IGroup FirstOrDefault()
         {
             return TraineeGroups.FirstOrDefault();
+        }
+
+        public void Update()
+        {
+            if (TraineeGroups.Count == 0)
+            {
+                Initialize();
+            }
+        }
+
+        public ITrainee this[string id]
+        {
+            get { return Trainees.FirstOrDefault(t => t.Id == id); }
+        }
+
+        public void Save(ITrainee trainee)
+        {
+          
         }
     }
 }
