@@ -1,0 +1,51 @@
+﻿@model Maps.Data.Interfaces.ITrainee
+
+@if (ViewBag.ReadOnly)
+{
+    <tr>
+        <td>@Html.ActionLink("edit", "Edit", "Table", new { id = @Model.Id },new{@class="card-link"})</td>
+        <td>@Model.Name</td>
+        <td>@Model.Group</td>
+        <td>@Model.Latitude</td>
+        <td>@Model.Longitude</td>
+    </tr>
+}
+else
+{
+    <div class="container" style="margin-top: 30px;">
+        <h2>Trainees</h2>
+    </div>
+    using (Html.BeginForm("Save", "Table"))
+    {
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">Name</div>
+                <div class="col-md-7">
+                    @Html.TextBox("Name", @Model.Name, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">Group</div>
+                <div class="col-md-7">
+                    @Html.TextBox("Group", @Model.Group, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">Longitude</div>
+                <div class="col-md-7">
+                    @Html.TextBox("Longitude", @Model.Longitude, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">Latitude</div>
+                <div class="col-md-7">
+                    @Html.TextBox("Latitude", @Model.Latitude, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12"><input type="submit" class="btn btn-md"/></div>
+            </div>
+        </div>
+    }
+}

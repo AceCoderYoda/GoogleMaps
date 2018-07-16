@@ -15,7 +15,7 @@ namespace Maps.Data.Interfaces
 {
     public interface IGroup: IIdentifiable, IGeo
     {
-        IList<ITrainee> Trainees { get; }
+        ICollection<ITrainee> Trainees { get; }
 
         void AddTrainee(XElement traineeXElement);
         void AddTrainee(ITrainee trainee);
