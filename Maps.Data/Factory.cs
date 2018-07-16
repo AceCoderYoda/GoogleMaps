@@ -10,14 +10,14 @@
 
 #region ...   [Usings]   ...
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Xml.Linq;
 using Maps.Data.Interfaces;
 using Maps.Data.Models;
 using Maps.Tools;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Xml.Linq;
 
 #endregion
 
@@ -48,7 +48,7 @@ namespace Maps.Data
             }
         }
 
-      public string Markers()
+        public string Markers()
         {
             var markers = new List<Marker>();
             foreach (var traineeGroup in TraineeGroups)
@@ -57,7 +57,7 @@ namespace Maps.Data
                 {
                     Draggable = true,
                     Label = t.Name,
-                    Position = new LatLng() {Lng = t.Longitude, Lat = t.Latitude},
+                    Position = new LatLng() { Lng = t.Longitude, Lat = t.Latitude },
                     Map = null
                 });
 
@@ -79,6 +79,31 @@ namespace Maps.Data
         public IGroup FirstOrDefault()
         {
             return TraineeGroups.FirstOrDefault();
+        }
+
+        public IList<ITrainee> Trainees
+
+        {
+            get
+
+            {
+
+                var result = new List<ITrainee>();
+
+                foreach (var traineeGroup in TraineeGroups)
+
+                {
+
+                    result.AddRange(traineeGroup.Trainees);
+
+                }
+
+
+
+                return result;
+
+            }
+
         }
     }
 }
