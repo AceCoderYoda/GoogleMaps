@@ -48,6 +48,20 @@ namespace Maps.Data
             }
         }
 
+        public IList<ITrainee> Trainees
+        {
+            get
+            {
+                var result = new List<ITrainee>();
+                foreach (var traineeGroup in TraineeGroups)
+                {
+                    result.AddRange(traineeGroup.Trainees);
+                }
+
+                return result;
+            }
+        }
+
       public string Markers()
         {
             var markers = new List<Marker>();
