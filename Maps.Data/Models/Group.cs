@@ -12,6 +12,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Xml.Linq;
 using Maps.Data.Interfaces;
 using Newtonsoft.Json;
@@ -28,6 +29,7 @@ namespace Maps.Data.Models
             Name = name;
             Latitude = latitude;
             Longitude = longitude;
+            Trainees = new Collection<ITrainee>();
         }
 
         public ICollection<ITrainee> Trainees { get; }
@@ -44,7 +46,7 @@ namespace Maps.Data.Models
         {
             var trainee = new Trainee(traineeXElement.Attribute("Id").Value, traineeXElement.Attribute("Name").Value,
                 Convert.ToDouble(traineeXElement.Element("Geo").Element("Lat").Value),
-                Convert.ToDouble(traineeXElement.Element("Geo").Element("Lng").Value)) {GroupId = Id};
+                Convert.ToDouble(traineeXElement.Element("Geo").Element("Lng").Value)) {Group = this};
 
             AddTrainee(trainee);
         }

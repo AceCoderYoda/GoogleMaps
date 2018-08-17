@@ -63,10 +63,10 @@ namespace Maps.Data
                     trainees = trainees.OrderByDescending(s => s.Name).ToList();
                     break;
                 case "group":
-                    trainees = trainees.OrderBy(s => s.Group).ToList();
+                    trainees = trainees.OrderBy(s => s.Group.Name).ToList();
                     break;
                 case "group_desc":
-                    trainees = trainees.OrderByDescending(s => s.Group).ToList();
+                    trainees = trainees.OrderByDescending(s => s.Group.Name).ToList();
                     break;
                 default:
                     trainees = trainees.OrderBy(s => s.Name).ToList();

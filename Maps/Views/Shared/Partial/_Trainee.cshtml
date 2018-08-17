@@ -5,7 +5,7 @@
     <tr>
         <td>@Html.ActionLink("edit", "Edit", "Table", new { id = @Model.Id },new{@class="card-link"})</td>
         <td>@Model.Name</td>
-        <td>@Model.Group</td>
+        <td>@Model.Group.Name</td>
         <td>@Model.Latitude</td>
         <td>@Model.Longitude</td>
     </tr>
